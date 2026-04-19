@@ -1,21 +1,17 @@
-const fs=require("fs")
+const open=require("open")
 
 function takeToWeb(url){
     let newUrl=""
     if(url === "localhost:8080"){
-        newUrl="./index.html"
+        newUrl="index.html"
     }else if(url ==="localhost:8080/about"){
-        newUrl="./about.html"
+        newUrl="about.html"
     }else if(url ==="localhost:8080/contact-me"){
         newUrl="./contact-me.html"
     }else{
-        newUrl="./404.html"
+        newUrl="404.html"
     }
-fs.readFile(newUrl, "utf-8",(err,data)=>{
-    if(err){
-        console.error(err)
-    }
-    console.log(data)
-})
+open(newUrl)
+
 }
 takeToWeb("localhost:8080/contact-me")
