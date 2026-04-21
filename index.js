@@ -27,6 +27,6 @@ app.get("/",(req,res)=>{
 })
 
 app.listen(port,(err)=>{
-    iff (err){console.error(err)}
+    if (err){console.error(err)}
     console.log("I did it")
 })
