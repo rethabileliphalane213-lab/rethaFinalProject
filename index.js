@@ -1,6 +1,9 @@
 const open=require("open")
 const express=require("express")
 const app=express()
+const bookRouter=require("./routes/bookRouter")
+const authorRouter=require("./routes/authorRouter")
+const indexRouter=require("./routes/indexRouter")
 
 /*function takeToWeb(err,url){
     if(err){
@@ -20,6 +23,10 @@ const app=express()
 
 }*/
 
+app.use("/authors",authorRouter)
+app.use("/books",bookRouter)
+app.use("/",indexRouter)
+
  const port=process.env.PORT
 app.get("/",(req,res)=>{
    
@@ -28,5 +35,8 @@ app.get("/",(req,res)=>{
 
 app.listen(port,(err)=>{
     if (err){console.error(err)}
-    console.log("I did it")
+   console.log(`My first Express app - listening on port ${PORT}!`)
 })
+
+
+
